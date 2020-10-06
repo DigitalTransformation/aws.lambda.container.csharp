@@ -1,0 +1,26 @@
+### -----------
+### SET:env variables
+### -----------
+
+@host = 0.0.0.0:5001
+
+### -----------
+### GET: /
+### -----------
+
+GET https://{{host}}/
+Accept: text/plain
+
+### -----------
+### GET: /
+### -----------
+
+@int = 123
+
+GET https://{{host}}/api/values
+Accept: text/plain
+
+###
+
+GET https://{{host}}/api/values/{{int}}
+Accept: text/plain
