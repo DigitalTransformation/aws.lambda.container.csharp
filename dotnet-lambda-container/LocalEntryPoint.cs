@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using dotnet_lambda_container.Service;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace dotnet_lambda_container
@@ -22,6 +24,12 @@ namespace dotnet_lambda_container
         /// <returns>Instance of Host</returns>
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
+                .ConfigureServices((_, services) =>
+                {
+                    services
+                        .AddHostedService<TimeService>();
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                    webBuilder.UseStartup<Startup>());
     }
 }
