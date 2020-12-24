@@ -1,0 +1,27 @@
+### -----------
+### SET:env variables
+### -----------
+
+@host = <<instance_id>>.execute-api.us-east-1.amazonaws.com
+@env = Prod
+
+### -----------
+### GET: /
+### -----------
+
+GET https://{{host}}/{{env}}
+Accept: text/plain
+
+### -----------
+### GET: /
+### -----------
+
+@int = 123
+
+GET https://{{host}}/{{env}}/api/values
+Accept: text/plain
+
+###
+
+GET https://{{host}}/{{env}}/api/values/{{int}}
+Accept: text/plain
