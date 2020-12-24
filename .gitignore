@@ -1,0 +1,9 @@
+# GIT IGNORE
+
+# dotnet build outputs
+**/obj
+**/bin
+
+# securables
+# **/appsettings.*.json
+# **/appsettings.json
